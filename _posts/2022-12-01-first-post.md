@@ -37,10 +37,37 @@ last_modified_at: 2022-12-01
     - artifactId: hello-spring
 
 - Dependencies: Spring Web, Thymeleaf
-
 ![image](https://user-images.githubusercontent.com/96652450/204960159-f4048507-f80b-4be3-8485-eb22abebb79c.png)
 
+### Gradle 설정
+```
+//build.gradle 
+
+plugins {
+	id 'org.springframework.boot' version '2.7.3'
+	id 'io.spring.dependency-management' version '1.0.13.RELEASE'
+	id 'java'
+}
+
+group = 'hello'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation ('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+```
 
 ### IntelliJ JDK 설치 확인
 
-> 가급적 JDK 11버전 설치 : 다른 버전일 경우, 동작하지 않을 가능성 높음
+- 프로젝트 JDK 설정
+    - Windows: File -> Project Structure (ctrl+alt+shift+S)  
+![image](https://user-images.githubusercontent.com/96652450/205441210-88b97346-14db-407c-a288-0d5b9915c842.png)
+
+- Gradle JDK 설정
+    - Windos: File -> Settings (ctrl+alt+S)
+![image](https://user-images.githubusercontent.com/96652450/205460793-12caa135-a3f6-4e94-b713-39bb839524e4.png)
